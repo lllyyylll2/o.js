@@ -40,8 +40,8 @@
     } else {
         root.o = factory(root.Q);
     }
-} (this, function (Q) {
-    function o(res) {
+}(this, function (Q) {
+    function o(res, extraConfig) {
         var base = this;
 
         //base config object
@@ -111,7 +111,11 @@
             return (base);
         }
         else {
-            return (new oData(res, base.oConfig));
+            var cfg = base.oConfig;
+            if (extraConfig) {
+                cfg = merge(cfg, extraConfig);
+            }
+            return (new oData(res, cfg));
         }
     }
 
@@ -1525,8 +1529,8 @@
                         }
 
                         output = output +
-                        this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
-                        this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+                            this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+                            this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
 
                     }
 
