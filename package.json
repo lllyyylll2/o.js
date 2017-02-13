@@ -8,11 +8,9 @@
     "xhr2": "*"
   },
   "devDependencies": {
-    "jasmine": "*",
     "uglify-js": "*"
   },
   "scripts": {
-    "test": "jasmine",
     "uglify": "uglifyjs --compress --mangle --o o.min.js o.js"
   },
   "repository": {
